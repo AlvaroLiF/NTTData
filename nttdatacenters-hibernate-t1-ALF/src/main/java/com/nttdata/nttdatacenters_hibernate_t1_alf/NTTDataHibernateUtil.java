@@ -2,9 +2,8 @@ package com.nttdata.nttdatacenters_hibernate_t1_alf;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * Taller Práctico 1 - Hibernate
@@ -17,7 +16,7 @@ import ch.qos.logback.classic.Logger;
 public class NTTDataHibernateUtil {
 
 	/** LOGGER */
-	static final Logger log = (Logger) LoggerFactory.getLogger(NTTDataHibernateUtil.class);
+	static final Logger log = LoggerFactory.getLogger(NTTDataHibernateUtil.class);
 
 	/** Factoría de sesiones */
 	private static final SessionFactory SESSION_FACTORY;
@@ -37,7 +36,7 @@ public class NTTDataHibernateUtil {
 		} catch (final Exception ex) {
 
 			// Error de inicialización
-			log.debug(String.format("[ERROR] Configuración de Hibernate - %s", ex));
+			log.error(String.format("[ERROR] Configuración de Hibernate - %s", ex));
 			throw new ExceptionInInitializerError();
 		}
 

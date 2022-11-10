@@ -60,7 +60,6 @@ public class CommonDaoImplementation<T> implements CommonDaoInterface<T> {
 
 		// Actualización
 		session.saveOrUpdate(paramT);
-		
 
 		// Commit
 		session.getTransaction().commit();

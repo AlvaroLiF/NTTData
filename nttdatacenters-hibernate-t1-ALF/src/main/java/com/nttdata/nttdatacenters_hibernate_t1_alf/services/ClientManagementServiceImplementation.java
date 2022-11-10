@@ -44,7 +44,7 @@ public class ClientManagementServiceImplementation implements ClientManagementSe
 	public void updateClient(final Client updatedClient) {
 
 		// Verificación de nulidad e inexistencia
-		if (updatedClient != null && updatedClient.getClientId() == null) {
+		if (updatedClient != null && updatedClient.getClientId() != null) {
 
 			// Actualización del cliente
 			clientDao.update(updatedClient);
@@ -56,7 +56,7 @@ public class ClientManagementServiceImplementation implements ClientManagementSe
 	public void deleteClient(final Client deletedClient) {
 
 		// Verificación de nulidad e inexistencia
-		if (deletedClient != null && deletedClient.getClientId() == null) {
+		if (deletedClient != null && deletedClient.getClientId() != null) {
 
 			// Eliminación del cliente
 			clientDao.delete(deletedClient);
@@ -65,7 +65,7 @@ public class ClientManagementServiceImplementation implements ClientManagementSe
 	}
 
 	@Override
-	public Client searchById(Long clientId) {
+	public Client searchById(final Long clientId) {
 
 		// Resultado
 		Client client = null;

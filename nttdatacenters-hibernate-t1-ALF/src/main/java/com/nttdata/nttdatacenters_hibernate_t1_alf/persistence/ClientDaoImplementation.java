@@ -54,7 +54,7 @@ public class ClientDaoImplementation extends CommonDaoImplementation<Client> imp
 
 		// Obtenemos los clientes en función del nombre y del número del documento de
 		// identidad
-		return session.createQuery(NAMEQUERY + firstName+"'").list();
+		return session.createQuery(NAMEQUERY + firstName + "'").list();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -68,7 +68,8 @@ public class ClientDaoImplementation extends CommonDaoImplementation<Client> imp
 
 		// Obtenemos los clientes en función del nombre y del número del documento de
 		// identidad
-		return session.createQuery(NAMEQUERY + firstName + "' AND firstSurname='" + firstSurname+ "' AND secondSurname='"+secondSurname+"'").list();
+		return session.createQuery(NAMEQUERY + firstName + "' AND firstSurname='" + firstSurname
+				+ "' AND secondSurname='" + secondSurname + "'").list();
 	}
 
 }
