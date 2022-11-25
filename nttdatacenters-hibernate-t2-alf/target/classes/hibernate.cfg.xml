@@ -16,6 +16,8 @@
 			class="nttdatacenters.hibernate.t2_alf.persistence.Client" />
 		<mapping
 			class="nttdatacenters.hibernate.t2_alf.persistence.Contract" />
+		<mapping
+			class="nttdatacenters.hibernate.t2_alf.persistence.ContractType" />
 
 	</session-factory>
 </hibernate-configuration>

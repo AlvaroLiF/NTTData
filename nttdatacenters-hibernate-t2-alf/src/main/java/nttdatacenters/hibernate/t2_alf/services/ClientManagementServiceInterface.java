@@ -5,7 +5,7 @@ import java.util.List;
 import nttdatacenters.hibernate.t2_alf.persistence.Client;
 
 /**
- * Taller Práctico 1 - Hibernate
+ * Taller Práctico 2 - Hibernate
  * 
  * Interfaz del servicio de clientes
  * 
@@ -22,7 +22,7 @@ public interface ClientManagementServiceInterface {
 	public void insertNewClient(final Client newClient);
 
 	/**
-	 * Actualiza a un cliente existente
+	 * Actualiza un cliente existente
 	 * 
 	 * @param updatedClient
 	 */
@@ -56,7 +56,8 @@ public interface ClientManagementServiceInterface {
 	 * @param identityCardNumber
 	 * @return List<Client>
 	 */
-	public List<Client> searchByFirstNameAndIdentityCardNumber(final String firstName, final Integer identityCardNumber);
+	public List<Client> searchByFirstNameAndIdentityCardNumber(final String firstName,
+			final Integer identityCardNumber);
 
 	/**
 	 * Obtiene jugadores por nombre

@@ -11,9 +11,9 @@ import nttdatacenters.hibernate.t2_alf.persistence.ClientDaoImplementation;
 import nttdatacenters.hibernate.t2_alf.persistence.ClientDaoInterface;
 
 /**
- * Taller Práctico 1 - Hibernate
+ * Taller Práctico 2 - Hibernate
  * 
- * Interfaz del servicio de clientes
+ * Implementación del servicio de clientes
  * 
  * @author ALF
  *
@@ -88,7 +88,8 @@ public class ClientManagementServiceImplementation implements ClientManagementSe
 	}
 
 	@Override
-	public List<Client> searchByFirstNameAndIdentityCardNumber(final String firstName, final Integer identityCardNumber) {
+	public List<Client> searchByFirstNameAndIdentityCardNumber(final String firstName,
+			final Integer identityCardNumber) {
 
 		// Resultado
 		List<Client> clientsList = new ArrayList<>();

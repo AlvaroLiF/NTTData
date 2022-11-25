@@ -6,14 +6,14 @@ import java.util.List;
 import org.hibernate.Session;
 
 /**
- * Taller Práctico 1 - Hibernate
+ * Taller Práctico 2 - Hibernate
  * 
  * Implementación del DAO genérico
  * 
  * @author ALF
  *
  */
-public class CommonDaoImplementation<T> implements CommonDaoInterface<T> {
+public abstract class CommonDaoImplementation<T extends AbstractEntity> implements CommonDaoInterface<T> {
 
 	/** Tipo de clase */
 	private Class<T> entityClass;

@@ -1,22 +1,25 @@
 package nttdatacenters.hibernate.t2_alf.persistence;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Taller Práctico 2 - Hibernate
  * 
- * Entidad de tabla Contract
+ * Entidad de la tabla Contract
  * 
  * @author ALF
  *
@@ -24,25 +27,28 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "NTTDATA_CONTRACT")
-public class Contract implements Serializable {
-	
+public class Contract extends AbstractEntity implements Serializable {
+
 	/** Serial Version */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** Identificador (PK) */
 	private Long contractId;
-	
+
 	/** Fecha de vigencia */
-	private Date effectiveDate;
-	
+	private LocalDate effectiveDate;
+
 	/** Fecha de caducidad */
-	private Date expirationDate;
-	
+	private LocalDate expirationDate;
+
 	/** Precio mensual */
 	private Double monthlyPrice;
-	
+
 	/** Cliente asociado */
 	private Client client;
+
+	/** Tipo de contrato asociado */
+	private ContractType contractType;
 
 	/**
 	 * Devuelve el Id del contrato
@@ -70,8 +76,8 @@ public class Contract implements Serializable {
 	 * 
 	 * @return effectiveDate
 	 */
-	@Column(name = "EFFECTIVE_DATE")
-	public Date getEffectiveDate() {
+	@Column(name = "EFFECTIVE_DATE", nullable = false)
+	public LocalDate getEffectiveDate() {
 		return effectiveDate;
 	}
 
@@ -80,7 +86,7 @@ public class Contract implements Serializable {
 	 * 
 	 * @param effectiveDate
 	 */
-	public void setEffectiveDate(Date effectiveDate) {
+	public void setEffectiveDate(LocalDate effectiveDate) {
 		this.effectiveDate = effectiveDate;
 	}
 
@@ -89,8 +95,8 @@ public class Contract implements Serializable {
 	 * 
 	 * @return expirationDate
 	 */
-	@Column(name="EXPIRATION_DATE")
-	public Date getExpirationDate() {
+	@Column(name = "EXPIRATION_DATE", nullable = false)
+	public LocalDate getExpirationDate() {
 		return expirationDate;
 	}
 
@@ -99,7 +105,7 @@ public class Contract implements Serializable {
 	 * 
 	 * @param expirationDate
 	 */
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(LocalDate expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -108,7 +114,7 @@ public class Contract implements Serializable {
 	 * 
 	 * @return monthlyPrice
 	 */
-	@Column(name="MONTHLY_PRICE")
+	@Column(name = "MONTHLY_PRICE")
 	public Double getMonthlyPrice() {
 		return monthlyPrice;
 	}
@@ -123,8 +129,8 @@ public class Contract implements Serializable {
 	}
 
 	/**
-	 * Establece la relación N:1 entre la tabla Contract y Client,
-	 * entrando en la columna CLIENT_ID
+	 * Establece la relación N:1 entre la tabla Contract y Client, entrando en la
+	 * columna CLIENT_ID
 	 * 
 	 * @return client
 	 */
@@ -144,6 +150,25 @@ public class Contract implements Serializable {
 	}
 
 	/**
+	 * Establece la relación 1:1 entre la tabla Contract y ContractType
+	 * 
+	 * @return contractType
+	 */
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "contract", cascade = CascadeType.ALL)
+	public ContractType getContractType() {
+		return contractType;
+	}
+
+	/**
+	 * Establece el tipo de contrato
+	 * 
+	 * @param contractType
+	 */
+	public void setContractType(ContractType contractType) {
+		this.contractType = contractType;
+	}
+
+	/**
 	 * toString de la clase Contract
 	 */
 	@Override
@@ -152,8 +177,9 @@ public class Contract implements Serializable {
 				+ expirationDate + ", monthlyPrice=" + monthlyPrice + ", client=" + client + "]";
 	}
 
-
-	
-	
+	@Transient
+	public Class<?> getClase() {
+		return Contract.class;
+	}
 
 }

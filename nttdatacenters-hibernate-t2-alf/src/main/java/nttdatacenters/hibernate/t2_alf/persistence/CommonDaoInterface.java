@@ -3,7 +3,7 @@ package nttdatacenters.hibernate.t2_alf.persistence;
 import java.util.List;
 
 /**
- * Taller Práctico 1 - Hibernate
+ * Taller Práctico 2 - Hibernate
  * 
  * DAO Genérico
  * 

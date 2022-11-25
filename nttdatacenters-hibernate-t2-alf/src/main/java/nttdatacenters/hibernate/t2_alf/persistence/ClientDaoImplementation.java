@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 
 /**
- * Taller Práctico 1 - Hibernate
+ * Taller Práctico 2 - Hibernate
  * 
  * Implementación del DAO de tabla NTTDATA_CLIENT
  * 

@@ -11,12 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 /**
- * Taller Práctico 1 - Hibernate
+ * Taller Práctico 2 - Hibernate
  * 
- * Entidad de tabla Client
+ * Entidad de la tabla Client
  * 
  * @author ALF
  * 
@@ -24,7 +25,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "NTTDATA_CLIENT")
-public class Client implements Serializable {
+public class Client extends AbstractEntity implements Serializable {
 
 	/** Serial Version */
 	private static final long serialVersionUID = 1L;
@@ -43,7 +44,8 @@ public class Client implements Serializable {
 
 	/** Número de documento de identidad */
 	private Integer identityCardNumber;
-	
+
+	/** Lista de contratos relacianados */
 	private List<Contract> contractList;
 
 	/**
@@ -145,8 +147,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * Establece la relación 1:N entre la tabla Client y Contract 
-	 * mediante el atributo que representa a Client en la tabla Contract
+	 * Establece la relación 1:N entre la tabla Client y Contract mediante el
+	 * atributo que representa a Client en la tabla Contract
 	 * 
 	 * @return contractList
 	 */
@@ -171,6 +173,11 @@ public class Client implements Serializable {
 	public String toString() {
 		return "Client [clientId=" + clientId + ", firstName=" + firstName + ", firstSurname=" + firstSurname
 				+ ", secondSurname=" + secondSurname + ", identityCardNumber=" + identityCardNumber + "]";
+	}
+
+	@Transient
+	public Class<?> getClase() {
+		return Client.class;
 	}
 
 }
