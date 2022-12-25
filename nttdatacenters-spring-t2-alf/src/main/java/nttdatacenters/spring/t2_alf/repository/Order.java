@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.lang.NonNull;
+
 /**
  * Taller Práctico 2 - Spring
  * 
@@ -110,6 +112,7 @@ public class Order implements Serializable {
 	 * @return
 	 */
 	@Column(name = "IS_IN_PENINSULA")
+	@NonNull
 	public Boolean getIsInPeninsula() {
 		return isInPeninsula;
 	}

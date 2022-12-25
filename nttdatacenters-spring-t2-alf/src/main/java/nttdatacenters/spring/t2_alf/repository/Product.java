@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.lang.NonNull;
+
 /**
  * Taller Práctico 2 - Spring
  * 
@@ -69,6 +71,7 @@ public class Product implements Serializable {
 	 * @return
 	 */
 	@Column(name = "NAME")
+	@NonNull
 	public String getName() {
 		return name;
 	}
@@ -88,6 +91,7 @@ public class Product implements Serializable {
 	 * @return
 	 */
 	@Column(name = "RETAIL_PRICE")
+	@NonNull
 	public Double getRetailPrice() {
 		return retailPrice;
 	}
@@ -107,6 +111,7 @@ public class Product implements Serializable {
 	 * @return
 	 */
 	@Column(name = "PRICE_WITH_TAX")
+	@NonNull
 	public Double getPriceWithTax() {
 		return priceWithTax;
 	}
