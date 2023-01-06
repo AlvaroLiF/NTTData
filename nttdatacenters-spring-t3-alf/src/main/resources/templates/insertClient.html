@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inserta un nuevo cliente</title>
+</head>
+<body>
+	<form th:action="@{/insertClient}" th:object="${client}" method="POST">
+		<div class="form-group">
+			<label>Nombre : </label> <input type="text" name="name"
+				th:field="*{name}" class="form-control" placeholder="Nombre"
+				required> <br>
+		</div>
+		<div class="form-group">
+			<label>Apellidos : </label> <input type="text" name="name"
+				th:field="*{surnames}" class="form-control" placeholder="Apellidos"
+				required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label>DNI : </label> <input type="text" name="surnames"
+				th:field="*{identityCardNumber}" class="form-control"
+				placeholder="DNI" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label>Fecha de nacimiento : </label> <input type="text"
+				name="birthdate" th:field="*{birthdate}" class="form-control"
+				placeholder="fecha de nacimiento" required>
+		</div>
+		<br>
+		<div class="box-footer">
+			<button class="btn btn-success">Enviar</button>
+		</div>
+	</form>
+</body>
+</html>

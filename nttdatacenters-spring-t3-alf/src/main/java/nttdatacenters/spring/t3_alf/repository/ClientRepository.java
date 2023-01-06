@@ -25,4 +25,12 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	 */
 	List<Client> findByNameAndSurnames(String name, String surnames);
 
+	/**
+	 * Busca los clientes por nombre
+	 * 
+	 * @param name
+	 * @return
+	 */
+	List<Client> findByName(String name);
+
 }

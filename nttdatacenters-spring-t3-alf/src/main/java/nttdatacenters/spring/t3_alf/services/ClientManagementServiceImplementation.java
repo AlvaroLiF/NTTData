@@ -58,10 +58,16 @@ public class ClientManagementServiceImplementation implements ClientManagementSe
 	}
 
 	@Override
-	public List<Client> searchByFirstNameAndSurnames(String name, String surnames) {
+	public List<Client> searchByNameAndSurnames(String name, String surnames) {
 
 		return clientRepo.findByNameAndSurnames(name, surnames);
 
+	}
+
+	@Override
+	public List<Client> searchByName(String name) {
+
+		return clientRepo.findByName(name);
 	}
 
 }

@@ -57,5 +57,13 @@ public interface ClientManagementServiceInterface {
 	 * @param surnames
 	 * @return List<Client>
 	 */
-	public List<Client> searchByFirstNameAndSurnames(String name, String surnames);
+	public List<Client> searchByNameAndSurnames(String name, String surnames);
+
+	/**
+	 * Obtiene los clientes por el nombre
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public List<Client> searchByName(String name);
 }

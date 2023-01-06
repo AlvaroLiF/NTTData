@@ -31,7 +31,7 @@ public class NTTDataMain implements CommandLineRunner {
 	/** Servicio de gestión de clientes */
 	@Autowired
 	private ClientManagementServiceInterface clientService;
-	
+
 	static final String NOMBRE_MARIA = "María";
 	static final String APELLIDOS_RODRIGUEZ_PARERA = "Rodríguez Parera";
 
@@ -85,8 +85,8 @@ public class NTTDataMain implements CommandLineRunner {
 		clientService.insertNewClient(client3);
 		clientService.insertNewClient(client4);
 
-		//Muestra el cliente buscado por Id
-		
+		// Muestra el cliente buscado por Id
+
 		Optional<Client> client = clientService.searchById((long) 1);
 
 		if (log.isInfoEnabled() && client.isPresent()) {
@@ -96,8 +96,8 @@ public class NTTDataMain implements CommandLineRunner {
 		}
 
 		// Muestra los clientes buscados por nombre y apellidos
-		
-		List<Client> clients = clientService.searchByFirstNameAndSurnames(NOMBRE_MARIA, APELLIDOS_RODRIGUEZ_PARERA);
+
+		List<Client> clients = clientService.searchByNameAndSurnames(NOMBRE_MARIA, APELLIDOS_RODRIGUEZ_PARERA);
 
 		for (final Client results : clients) {
 
